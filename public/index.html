@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,95 +8,40 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/styles/homePage.css"/>
 
-    <title>Mongo Users</title>
+    <title>EESC Alumni Database</title>
 </head>
 
 <body>
-    <div class="container">
-        <div id="app">
-            <div v-if="users.length > 0" class="users">
-                <h2>Users</h2>
-                <ul class="list-group">
-                    <li class="list-group-item" v-for="user in users" :key="user.id">
-                        <h2>{{user.username}}</h2>
-                        <p>Created on: {{user.createdAt}}</p>
-                        <button v-on:click.prevent="deleteUser(user)" class="btn btn-danger btn-sm">Delete</button>
-                    </li>
-                </ul>
-                <br>
+    <div class="earth">
+        <div class="transparent">
+            <div class="headerbackground" style="background-size: 20% 90%; background-repeat: no-repeat; ">
+                <h2>Earth and Environmental Science Alumni Database
+            <br>College of Arts and Science</h2>
             </div>
-            <div v-if="users.length == 0">
-                <h2>No Users</h2>
+            <br><br><br><br><br><br><br>
+            <div class="leftbutton-style">
+                <input style="margin-left: 175px; height: 80px; background-color: #0b5394; border-color: #0b5394; font-size: 20px; font-weight: bold;" type="button" onclick="location.href='/alumni/form'" class="btn btn-primary" value="Continue as Alumni" />
             </div>
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" v-model="username" placeholder="New user">
-                </div>
-
-                <button v-on:click.prevent="addUser" class="btn btn-primary">Add User</button>
-            </form>
-        </div>
+            <div class="rightbutton-style">
+                <input style="height: 80px; font-size: 20px; background-color: #bf9000; border-color: #bf9000; font-weight: bold;"type="button" onclick="location.href='/admin/login'" class="btn btn-primary" value="Continue as Admin" />
+            </div>
+            </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
-
-<script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-            message: 'Hello Vue!',
-            username: "",
-            users: [],
-        },
-
-        created: function () {
-            axios({
-                    method: 'get',
-                    url: '/users',
-                    responseType: 'json'
-                })
-                .then((response) => {
-                    this.users = response.data
-                });
-        },
-        methods: {
-            addUser: function () {
-                axios({
-                    method: "post",
-                    url: "/users",
-                    data: {
-                        username: this.username
-                    }
-                }).then(response => {
-                    location.reload();
-                }).catch(err => console.log(err.message))
-            },
-            deleteUser: function (user) {
-                let userId = user._id
-                axios({
-                    method: "delete",
-                    url: `/users/${userId}`,
-
-                }).then(response => {
-                    location.reload();
-                }).catch(err => console.log(err.message))
-            }
-        }
-    })
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
 </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+</script>
+</body>
+</html>

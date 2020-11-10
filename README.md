@@ -22,7 +22,10 @@ Please go to our Drive to get the username and password for the command below
 
 `heroku git:remote -a umw-earth-science`
 
-`node app.js`
+## Running Local Server
+
+ To run the app use
+ `npm run start` or `nodemon app.js`
 
 ## After Changes
 `git add .`
@@ -38,3 +41,14 @@ https://account.mongodb.com/account/login?signedOut=true
 
 ## Heroku Dashboard
 https://id.heroku.com/login
+
+## Keep Fork Updated
+
+`git remote add upstream https://github.com/pratimakandel/EESCAlumniDatabaseCPSC_430.git `
+
+`git fetch upstream `
+
+`git pull upstream master `
+
+`git push origin master `
+
